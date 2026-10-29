@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   Meridian Design System · Warm Sand & Porcelain Luxury Fintech
+   Inspired by editorial neomorphic & clay-warm SaaS aesthetics
+   ───────────────────────────────────────────────────────────── */
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Outfit', monospace;
+
+  /* radii */
+  --radius-sm: 0.75rem;
+  --radius-md: 1.125rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.25rem;
+
+  /* brand colors */
+  --color-canvas: #f4efe9;
+  --color-canvas-subtle: #eae3db;
+  --color-porcelain: #ffffff;
+  --color-ink: #141517;
+  --color-ink-muted: #5e626e;
+
+  /* signature marigold yellow from reference */
+  --color-marigold: #fec94a;
+  --color-marigold-hover: #f5bc35;
+
+  /* pills & accents */
+  --color-emerald-pill: #10b981;
+  --color-coral-pill: #ef4444;
+  --color-lavender-pill: #6366f1;
+
+  /* slate remap for harmonious warm neutrality */
+  --color-slate-50: #fcfbf9;
+  --color-slate-100: #f4efe9;
+  --color-slate-200: #e8e2d8;
+  --color-slate-300: #d6cdc1;
+  --color-slate-400: #9e9588;
+  --color-slate-500: #70685c;
+  --color-slate-600: #524c43;
+  --color-slate-700: #38342e;
+  --color-slate-800: #23201d;
+  --color-slate-900: #141517;
+
+  /* mint & lilac compatibility aliases */
+  --color-mint: #d1fae5;
+  --color-mint-deep: #10b981;
+  --color-lilac: #e0e7ff;
+  --color-lilac-deep: #6366f1;
+  --color-fog: #f2ede5;
+}
+
+:root {
+  font-family: var(--font-sans);
+  color-scheme: light;
+  color: var(--color-ink);
+}
+
+html, body {
+  min-height: 100%;
+  color: #141517;
+  background-color: #f4efe9;
+  background-image:
+    radial-gradient(1200px 700px at 15% -5%, rgba(255, 255, 255, 0.95) 0%, transparent 65%),
+    radial-gradient(900px 600px at 90% 10%, rgba(245, 235, 222, 0.7) 0%, transparent 55%),
+    radial-gradient(1100px 800px at 50% 100%, rgba(225, 212, 196, 0.6) 0%, transparent 70%);
+  background-attachment: fixed;
+  font-feature-settings: "tnum" 1, "ss01" 1;
+}
+
+/* ambient warm dune element at viewport corner */
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -120px;
+  right: -80px;
+  width: 580px;
+  height: 440px;
+  background: radial-gradient(ellipse at center, rgba(226, 210, 192, 0.4) 0%, rgba(244, 239, 233, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(40px);
+}
+
+::selection {
+  background: #fec94a;
+  color: #141517;
+}
+
+/* focus ring */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid #141517;
+  outline-offset: 2px;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(254, 201, 74, 0.45);
+  border-color: #fec94a !important;
+}
+
+/* custom scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6cdc1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b8ac9d;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* floating luxury porcelain card */
+.porcelain-card {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(214, 205, 193, 0.45);
+  border-radius: 1.35rem;
+  box-shadow: 0 8px 24px -6px rgba(32, 28, 22, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.porcelain-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -8px rgba(32, 28, 22, 0.08);
+}
+
+/* signature marigold card */
+.marigold-card {
+  background-color: #fec94a;
+  color: #141517;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(230, 180, 50, 0.3);
+  box-shadow: 0 8px 24px -6px rgba(254, 201, 74, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.marigold-card:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 12px 28px -6px rgba(254, 201, 74, 0.45);
+}
+
+/* soundwave equalizer animation */
+@keyframes soundwave {
+  0%, 100% {
+    height: 6px;
+    opacity: 0.45;
+  }
+  50% {
+    height: 28px;
+    opacity: 1;
+  }
+}
+.soundwave-bar {
+  animation: soundwave 1.2s ease-in-out infinite;
+  border-radius: 9999px;
+}
+
+/* float micro animation */
+@keyframes subtle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.float-subtle {
+  animation: subtle-float 4s ease-in-out infinite;
+}
+
+/* rise-in animation */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise-in {
+  animation: rise-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* inputs */
+main input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+main select,
+main textarea {
+  background-color: #f4efe9;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+main input:focus, main select:focus, main textarea:focus {
+  background-color: #ffffff;
+}

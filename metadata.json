@@ -1,0 +1,8 @@
+{
+  "name": "Bank Simulator",
+  "description": "Production-ready digital bank simulator featuring real-time transaction processing, unified ledger history, and high-speed account search.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
